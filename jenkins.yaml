@@ -28,9 +28,9 @@ credentials:
           - usernamePassword:
               scope: GLOBAL
               id: github-api-token
-              username: simonmcc
+              username: bbfoto
               password: ${GITHUB_API_TOKEN}
-              description: "github API token cfgmgmtcmp-2019-iac-ci-cd"
+              description: "github API token OotF"
 
 security:
   remotingCLI:
@@ -38,7 +38,7 @@ security:
 
 jobs:
   - script: |
-      def project = 'simonmcc/cfgmgmtcmp-2019-iac-ci-cd'
+      def project = 'bbfoto/packer-terraform-cicd-aws'
       def jobName = "${project}".replaceAll('/','-')
       multibranchPipelineJob(jobName) {
           branchSources {
@@ -46,8 +46,8 @@ jobs:
                 github {
                   id(project)
                   scanCredentialsId('github-api-token')
-                  repoOwner('simonmcc')
-                  repository('cfgmgmtcmp-2019-iac-ci-cd')
+                  repoOwner('bbfoto')
+                  repository('OotF')
 
                   buildForkPRHead(false)
                   buildForkPRMerge(false)
